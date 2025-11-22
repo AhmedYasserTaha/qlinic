@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qlinic/root.dart';
+import 'package:qlinic/features/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 
       title: 'Flutter Demo',
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: Root(),
+      home: SplashView(),
     );
   }
 }

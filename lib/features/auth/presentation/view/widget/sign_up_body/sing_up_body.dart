@@ -8,6 +8,7 @@ import 'package:qlinic/core/utils/app_colors.dart';
 import 'package:qlinic/features/auth/presentation/view/login_view.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/sign_up_body/header_section_signup.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/social_section.dart';
+import 'package:qlinic/root.dart';
 
 class SingUpBody extends StatefulWidget {
   const SingUpBody({super.key});
@@ -103,7 +104,10 @@ class _SingUpBodyState extends State<SingUpBody> {
                   CustomButton(
                     text: "Sign Up",
                     onTap: () {
-                      // Sign up action
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => Root()),
+                      );
                     },
                     width: double.infinity,
                     color: AppColors.secondaryColor,

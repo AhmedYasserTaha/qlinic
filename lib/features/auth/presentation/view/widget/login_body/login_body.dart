@@ -8,6 +8,7 @@ import 'package:qlinic/features/auth/presentation/view/sign_up_view.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/login_body/forget_password.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/login_body/header_section_login.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/social_section.dart';
+import 'package:qlinic/root.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -72,7 +73,10 @@ class _LoginBodyState extends State<LoginBody> {
                   CustomButton(
                     text: "Login ",
                     onTap: () {
-                      // Sign in action
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Root()),
+                      );
                     },
                     width: double.infinity,
                     color: AppColors.secondaryColor,
