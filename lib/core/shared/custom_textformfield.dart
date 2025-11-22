@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final TextEditingController? controller;
@@ -37,33 +38,33 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator: widget.validator,
       obscureText: _obscure,
       cursorColor: Colors.black,
-      cursorHeight: 20,
+      cursorHeight: 20.h,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 15,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 15.h,
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.sp),
           borderSide: BorderSide(color: Colors.red.withOpacity(.16)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.sp),
           borderSide: BorderSide(
             color: const Color(0xff677294).withOpacity(.16),
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.sp),
           borderSide: BorderSide(
             color: const Color(0xff677294).withOpacity(.16),
           ),
         ),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.sp)),
         labelText: widget.labelText,
         labelStyle: GoogleFonts.rubik(
           color: const Color(0xff677294),
-          fontSize: 16,
+          fontSize: 16.sp,
           fontWeight: FontWeight.w300,
         ),
         prefixIcon: widget.prefixIcon,

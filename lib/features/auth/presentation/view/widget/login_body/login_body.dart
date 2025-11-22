@@ -4,6 +4,7 @@ import 'package:qlinic/core/shared/custom_button.dart';
 import 'package:qlinic/core/shared/custom_textformfield.dart';
 import 'package:qlinic/core/shared/splash_background.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/auth/presentation/view/sign_up_view.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/login_body/forget_password.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/login_body/header_section_login.dart';
@@ -27,19 +28,19 @@ class _LoginBodyState extends State<LoginBody> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 120,
+                left: 20.w,
+                right: 20.w,
+                top: 120.h,
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Gap(50),
+                  Gap(50.h),
                   HeaderSectionLogin(),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   SocialSection(),
-                  const Gap(30),
+                  Gap(30.h),
 
                   CustomTextFormField(
                     labelText: "Email",
@@ -55,7 +56,7 @@ class _LoginBodyState extends State<LoginBody> {
                       return null;
                     },
                   ),
-                  const Gap(20),
+                  Gap(20.h),
                   CustomTextFormField(
                     labelText: "Password",
                     obscureText: true,
@@ -69,7 +70,7 @@ class _LoginBodyState extends State<LoginBody> {
                       return null;
                     },
                   ),
-                  const Gap(30),
+                  Gap(30.h),
                   CustomButton(
                     text: "Login ",
                     onTap: () {
@@ -81,13 +82,13 @@ class _LoginBodyState extends State<LoginBody> {
                     width: double.infinity,
                     color: AppColors.secondaryColor,
                     textColor: AppColors.wihteColor,
-                    height: 55,
-                    radius: 10,
+                    height: 55.h,
+                    radius: 10.sp,
                   ),
-                  const Gap(15),
+                  Gap(15.h),
                   ForgetPassword(),
                   CustomButton(
-                    fontSizeText: 14,
+                    fontSizeText: 14.sp,
                     fontWeightText: FontWeight.w400,
                     text: "Don’t have an account? Join us",
                     onTap: () {

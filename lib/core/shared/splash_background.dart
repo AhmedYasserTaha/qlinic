@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class SplashBackground extends StatelessWidget {
   const SplashBackground({super.key});
@@ -9,14 +10,14 @@ class SplashBackground extends StatelessWidget {
     return Stack(
       children: [
         Positioned(
-          top: -150,
-          left: -150,
+          top: -150.h,
+          left: -150.w,
           child: ClipOval(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
               child: Container(
-                width: 400,
-                height: 400,
+                width: 400.w,
+                height: 400.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
@@ -35,14 +36,14 @@ class SplashBackground extends StatelessWidget {
         ),
 
         Positioned(
-          bottom: -160,
-          right: -160,
+          bottom: -160.h,
+          right: -160.w,
           child: ClipOval(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
               child: Container(
-                width: 450,
-                height: 450,
+                width: 450.w,
+                height: 450.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: RadialGradient(

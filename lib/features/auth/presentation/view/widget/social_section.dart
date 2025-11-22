@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qlinic/core/shared/custom_button.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class SocialSection extends StatelessWidget {
   const SocialSection({super.key});
@@ -12,42 +13,42 @@ class SocialSection extends StatelessWidget {
         Expanded(
           child: Material(
             elevation: 3,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.sp),
 
             child: CustomButton(
               onTap: () {},
-              fontSizeText: 12,
+              fontSizeText: 12.sp,
               fontWeightText: FontWeight.w300,
               color: AppColors.wihteColor,
               text: "Facebook",
               textColor: AppColors.greyColor,
-              gap: 5,
+              gap: 5.w,
               widget: Image.asset(
                 "assets/icons/facebook.png",
-                width: 20,
-                height: 20,
+                width: 20.w,
+                height: 20.h,
               ),
             ),
           ),
         ),
-        const SizedBox(width: 20),
+        SizedBox(width: 20.w),
         Expanded(
           child: Material(
             elevation: 3,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.sp),
 
             child: CustomButton(
               onTap: () {},
-              fontSizeText: 12,
+              fontSizeText: 12.sp,
               fontWeightText: FontWeight.w300,
               color: AppColors.wihteColor,
               text: "Google",
               textColor: AppColors.greyColor,
-              gap: 5,
+              gap: 5.w,
               widget: Image.asset(
                 "assets/icons/google.png",
-                width: 20,
-                height: 20,
+                width: 20.w,
+                height: 20.h,
               ),
             ),
           ),

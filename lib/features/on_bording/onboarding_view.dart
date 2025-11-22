@@ -4,6 +4,7 @@ import 'package:qlinic/core/shared/custom_button.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/shared/splash_background.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/auth/presentation/view/sign_up_view.dart';
 
 class OnboardingView extends StatefulWidget {
@@ -45,10 +46,10 @@ class _OnboardingViewState extends State<OnboardingView> {
         children: [
           SplashBackground(),
           Positioned(
-            top: -40,
-            left: -130,
+            top: -40.h,
+            left: -130.w,
             child: CircleAvatar(
-              radius: 180,
+              radius: 180.w,
               backgroundColor: const Color(0xff0E83FC),
             ),
           ),
@@ -60,27 +61,27 @@ class _OnboardingViewState extends State<OnboardingView> {
             },
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(top: 100, left: 20, right: 20),
+                padding: EdgeInsets.only(top: 100.h, left: 20.w, right: 20.w),
                 child: Column(
                   children: [
                     Center(
                       child: CircleAvatar(
-                        radius: 150,
+                        radius: 150.w,
                         backgroundImage: AssetImage(_pages[index]['image']!),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     CustomText(
                       _pages[index]['title']!,
-                      fontSize: 24,
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     CustomText(
                       _pages[index]['desc']!,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.grey,
                       textAlign: TextAlign.center,
                     ),
@@ -108,10 +109,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                       },
                       color: const Color(0xff0E83FC),
                       textColor: AppColors.wihteColor,
-                      height: 50,
-                      radius: 10,
+                      height: 50.h,
+                      radius: 10.sp,
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 15.h),
                     if (_current < _pages.length - 1)
                       TextButton(
                         onPressed: () {
@@ -120,10 +121,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                         child: CustomText(
                           'تخطي',
                           color: AppColors.greyColor,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
-                    Gap(30),
+                    Gap(30.h),
                   ],
                 ),
               );

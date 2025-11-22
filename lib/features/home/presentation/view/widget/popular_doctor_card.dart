@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class PopularDoctorCard extends StatelessWidget {
   const PopularDoctorCard({super.key});
@@ -11,15 +11,15 @@ class PopularDoctorCard extends StatelessWidget {
     return Card(
       color: AppColors.wihteColor,
       elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.sp)),
       child: SizedBox(
-        width: 150,
+        width: 150.w,
         child: Column(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12.sp),
+                topRight: Radius.circular(12.sp),
               ),
               child: Image.asset(
                 "assets/images/doc.png",
@@ -29,27 +29,27 @@ class PopularDoctorCard extends StatelessWidget {
               ),
             ),
 
-            const Gap(10),
+            Gap(10.h),
 
-            const CustomText(
+            CustomText(
               "Dr. Stella Kane",
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),
 
-            const Gap(5),
+            Gap(5.h),
 
-            const CustomText(
+            CustomText(
               "Heart Surgeon",
-              fontSize: 12,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w300,
               color: Colors.grey,
             ),
 
-            const Gap(10),
+            Gap(10.h),
 
-            const Icon(Icons.star, color: Colors.amber, size: 16),
+            Icon(Icons.star, color: Colors.amber, size: 16.sp),
           ],
         ),
       ),

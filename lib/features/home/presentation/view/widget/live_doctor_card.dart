@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class LiveDoctorCard extends StatelessWidget {
   const LiveDoctorCard({super.key});
@@ -7,13 +7,13 @@ class LiveDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.width * 0.5,
-      width: MediaQuery.of(context).size.width * 0.35,
-      margin: const EdgeInsets.only(right: 15),
+      height: 160.h,
+      width: 130.w,
+      margin: EdgeInsets.only(right: 15.w),
       decoration: BoxDecoration(
         color: Colors.indigo,
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
+        borderRadius: BorderRadius.circular(20.sp),
+        image: const DecorationImage(
           image: AssetImage("assets/images/onboardin1.png"),
           fit: BoxFit.cover,
         ),
@@ -22,20 +22,20 @@ class LiveDoctorCard extends StatelessWidget {
         children: [
           // 🔴 LIVE Badge
           Positioned(
-            top: 10,
-            right: 10,
+            top: 10.h,
+            right: 10.w,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
                 color: Colors.red,
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(6.sp),
               ),
-              child: const Text(
+              child: Text(
                 "LIVE",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 12.sp,
                 ),
               ),
             ),
@@ -44,12 +44,12 @@ class LiveDoctorCard extends StatelessWidget {
           // ▶️ Play button in center
           Center(
             child: Container(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               decoration: const BoxDecoration(shape: BoxShape.circle),
-              child: const Icon(
+              child: Icon(
                 Icons.play_circle_outline_rounded,
                 color: Colors.white,
-                size: 40,
+                size: 40.sp,
               ),
             ),
           ),

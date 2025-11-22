@@ -4,6 +4,9 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/shared/splash_background.dart';
+import 'package:qlinic/core/utils/size_config.dart';
+import 'package:qlinic/features/home/presentation/view/popular_doctors_view.dart';
+import 'package:qlinic/features/home/presentation/view/speciale_doctors_view.dart';
 import 'package:qlinic/features/home/presentation/view/widget/live_doctor_card.dart';
 import 'package:qlinic/features/home/presentation/view/widget/popular_doctor_card.dart';
 import 'package:qlinic/features/home/presentation/view/widget/service_card.dart';
@@ -27,18 +30,18 @@ class HomeBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 170,
+                    height: 170.h,
                     width: double.infinity,
-                    padding: const EdgeInsets.only(
-                      top: 50,
-                      left: 20,
-                      right: 20,
+                    padding: EdgeInsets.only(
+                      top: 50.h,
+                      left: 20.w,
+                      right: 20.w,
                     ),
-                    decoration: const BoxDecoration(
-                      color: Color(0xff1E88E5),
+                    decoration: BoxDecoration(
+                      color: const Color(0xff1E88E5),
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20.sp),
+                        bottomRight: Radius.circular(20.sp),
                       ),
                     ),
                     child: Column(
@@ -47,27 +50,27 @@ class HomeBody extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomText(
                                   "Hi Handwerker!",
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
                                 ),
-                                SizedBox(height: 6),
+                                SizedBox(height: 6.h),
                                 CustomText(
                                   "Find Your Doctor",
-                                  fontSize: 25,
+                                  fontSize: 25.sp,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ],
                             ),
                             CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage(
+                              radius: 30.w,
+                              backgroundImage: const AssetImage(
                                 "assets/images/onboardin1.png",
                               ),
                             ),
@@ -77,25 +80,25 @@ class HomeBody extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Transform.translate(
-                      offset: const Offset(0, -25),
+                      offset: Offset(0, -25.h),
                       child: Material(
                         elevation: 5,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15.sp),
                         child: TextField(
                           decoration: InputDecoration(
                             hintStyle: GoogleFonts.rubik(
                               color: Colors.grey,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                             hintText: "Search...",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               CupertinoIcons.search,
                               color: Colors.grey,
                             ),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6.sp),
                               borderSide: BorderSide.none,
                             ),
                             fillColor: Colors.white,
@@ -105,51 +108,51 @@ class HomeBody extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Gap(10),
+                  Gap(10.h),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: CustomText(
                       "Live Doctors",
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
 
-                  Gap(10),
+                  Gap(10.h),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       children: List.generate(5, (index) {
-                        return LiveDoctorCard();
+                        return const LiveDoctorCard();
                       }),
                     ),
                   ),
 
-                  const Gap(20),
+                  Gap(20.h),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ServiceCard(
+                        const ServiceCard(
                           startColor: Color(0xFF3A7BFF),
                           endColor: Color(0xFF6A5BFF),
                           svgIcon: "assets/icons/Tooths.svg",
                         ),
-                        ServiceCard(
+                        const ServiceCard(
                           startColor: Color(0xFF00D18C),
                           endColor: Color(0xFF00BFA5),
                           svgIcon: "assets/icons/heart.svg",
                         ),
-                        ServiceCard(
+                        const ServiceCard(
                           startColor: Color(0xFFFFA44C),
                           endColor: Color(0xFFFF7043),
                           svgIcon: "assets/icons/aye.svg",
                         ),
-                        ServiceCard(
+                        const ServiceCard(
                           startColor: Color(0xFFFF5C5C),
                           endColor: Color(0xFFFF4A4A),
                           svgIcon: "assets/icons/body.svg",
@@ -157,74 +160,96 @@ class HomeBody extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Gap(20),
+                  Gap(20.h),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       children: [
                         CustomText(
                           "Popular Doctors",
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
-                        Spacer(),
-                        CustomText(
-                          "See All>",
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey,
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PopularDoctorsView(),
+                              ),
+                            );
+                          },
+                          child: CustomText(
+                            "See All>",
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.grey,
+                          ),
                         ),
                       ],
                     ),
                   ),
 
-                  const Gap(10),
+                  Gap(10.h),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       children: List.generate(5, (index) {
-                        return PopularDoctorCard();
+                        return const PopularDoctorCard();
                       }),
                     ),
                   ),
 
-                  const Gap(20),
+                  Gap(20.h),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       children: [
                         CustomText(
                           "Speciale Doctors",
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
-                        Spacer(),
-                        CustomText(
-                          "See All>",
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.grey,
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const SpecialeDoctorsView(),
+                              ),
+                            );
+                          },
+                          child: CustomText(
+                            "See All>",
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.grey,
+                          ),
                         ),
                       ],
                     ),
                   ),
 
-                  const Gap(10),
+                  Gap(10.h),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Row(
                       children: List.generate(5, (index) {
-                        return SpecialeDoctorCard();
+                        return const SpecialeDoctorCard();
                       }),
                     ),
                   ),
 
-                  const Gap(100),
+                  Gap(100.h),
                 ],
               ),
             ),

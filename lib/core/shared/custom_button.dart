@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 import 'custom_text.dart';
 
 class CustomButton extends StatelessWidget {
@@ -37,11 +38,11 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width,
-        height: height ?? 50,
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        height: height ?? 50.h,
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: color ?? AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(radius ?? 10),
+          borderRadius: BorderRadius.circular(radius ?? 10.sp),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +52,7 @@ class CustomButton extends StatelessWidget {
             CustomText(
               text,
               color: textColor ?? Colors.white,
-              fontSize: fontSizeText ?? 14,
+              fontSize: fontSizeText ?? 14.sp,
               fontWeight: fontWeightText ?? FontWeight.w500,
             ),
           ],

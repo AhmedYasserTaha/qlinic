@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class ServiceCard extends StatelessWidget {
   final Color startColor;
@@ -16,11 +17,11 @@ class ServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 15),
-      width: MediaQuery.of(context).size.width * 0.2,
-      height: MediaQuery.of(context).size.width * 0.22,
+      margin: EdgeInsets.only(right: 15.w),
+      width: 75.w,
+      height: 82.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.sp),
         gradient: LinearGradient(
           colors: [startColor, endColor],
           begin: Alignment.topLeft,
@@ -31,10 +32,10 @@ class ServiceCard extends StatelessWidget {
         children: [
           Positioned(
             top: 0,
-            right: -20,
+            right: -20.w,
             child: Container(
-              width: 55,
-              height: 55,
+              width: 55.w,
+              height: 55.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white.withOpacity(0.18),
@@ -42,12 +43,12 @@ class ServiceCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: -15,
+            bottom: -15.h,
             left: 0,
             right: 0,
             child: Container(
-              width: 60,
-              height: 60,
+              width: 60.w,
+              height: 60.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white.withOpacity(0.12),
@@ -57,8 +58,8 @@ class ServiceCard extends StatelessWidget {
           Center(
             child: SvgPicture.asset(
               svgIcon,
-              width: 30,
-              height: 30,
+              width: 30.w,
+              height: 30.h,
               colorFilter: const ColorFilter.mode(
                 Colors.white,
                 BlendMode.srcIn,

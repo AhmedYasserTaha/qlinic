@@ -4,6 +4,7 @@ import 'package:qlinic/core/shared/custom_button.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/shared/custom_textformfield.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -26,14 +27,14 @@ class ForgetPassword extends StatelessWidget {
               maxChildSize: 0.6,
               builder: (context, scrollController) {
                 return Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 20,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 20.h,
                   ),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(25),
+                      top: Radius.circular(25.sp),
                     ),
                   ),
                   child: SingleChildScrollView(
@@ -41,21 +42,21 @@ class ForgetPassword extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const CustomText(
+                        CustomText(
                           "Forgot password",
-                          fontSize: 22,
+                          fontSize: 22.sp,
                           fontWeight: FontWeight.bold,
                         ),
-                        const Gap(10),
+                        Gap(10.h),
 
-                        const CustomText(
+                        CustomText(
                           "Enter your email for the verification process,we will send 4 digits code to your email.",
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           color: AppColors.greyColor,
                           textAlign: TextAlign.center,
                         ),
 
-                        const Gap(30),
+                        Gap(30.h),
 
                         CustomTextFormField(
                           controller: emailController,
@@ -73,7 +74,7 @@ class ForgetPassword extends StatelessWidget {
                           },
                         ),
 
-                        const Gap(30),
+                        Gap(30.h),
 
                         CustomButton(
                           text: "Continue",
@@ -83,11 +84,11 @@ class ForgetPassword extends StatelessWidget {
                           width: double.infinity,
                           color: AppColors.secondaryColor,
                           textColor: AppColors.wihteColor,
-                          height: 55,
-                          radius: 12,
+                          height: 55.h,
+                          radius: 12.sp,
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                       ],
                     ),
                   ),
@@ -100,7 +101,7 @@ class ForgetPassword extends StatelessWidget {
       width: double.infinity,
       color: Colors.transparent,
       textColor: AppColors.secondaryColor,
-      fontSizeText: 14,
+      fontSizeText: 14.sp,
       fontWeightText: FontWeight.w400,
     );
   }

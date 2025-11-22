@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 
 class SpecialeDoctorCard extends StatelessWidget {
   const SpecialeDoctorCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cardWidth = MediaQuery.of(context).size.width * 0.35;
+    final cardWidth = 130.w;
     final profileSize = cardWidth * 0.6;
 
     return SizedBox(
       width: cardWidth,
       child: Card(
         color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.sp)),
         elevation: 4.0,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // --- Header Row ---
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Icon(Icons.favorite, color: Colors.red, size: 16),
+                  children: [
+                    Icon(Icons.favorite, color: Colors.red, size: 16.sp),
                     Row(
                       children: [
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        SizedBox(width: 4),
+                        Icon(Icons.star, color: Colors.amber, size: 16.sp),
+                        SizedBox(width: 4.w),
                         CustomText(
                           "4.9",
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
@@ -61,18 +62,18 @@ class SpecialeDoctorCard extends StatelessWidget {
               SizedBox(height: profileSize * 0.15),
 
               // --- Doctor Name ---
-              const CustomText(
+              CustomText(
                 "Dr. Strain",
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
                 textAlign: TextAlign.center,
               ),
 
               // --- Rate/Price ---
-              const CustomText(
+              CustomText(
                 '\$ 22.00 / hours',
-                fontSize: 11,
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w300,
                 color: Colors.grey,
                 textAlign: TextAlign.center,

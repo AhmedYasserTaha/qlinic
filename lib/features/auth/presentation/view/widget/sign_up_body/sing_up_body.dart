@@ -5,6 +5,7 @@ import 'package:qlinic/core/shared/custom_button.dart';
 import 'package:qlinic/core/shared/custom_textformfield.dart';
 import 'package:qlinic/core/shared/splash_background.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/auth/presentation/view/login_view.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/sign_up_body/header_section_signup.dart';
 import 'package:qlinic/features/auth/presentation/view/widget/social_section.dart';
@@ -28,17 +29,17 @@ class _SingUpBodyState extends State<SingUpBody> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(
-                left: 20,
-                right: 20,
+                left: 20.w,
+                right: 20.w,
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: Column(
                 children: [
-                  const Gap(120),
+                  Gap(120.h),
                   HeaderSectionSignup(),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   SocialSection(),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   CustomTextFormField(
                     labelText: "Name",
                     validator: (value) {
@@ -48,7 +49,7 @@ class _SingUpBodyState extends State<SingUpBody> {
                       return null;
                     },
                   ),
-                  const Gap(20),
+                  Gap(20.h),
                   CustomTextFormField(
                     labelText: "Email",
                     validator: (value) {
@@ -63,7 +64,7 @@ class _SingUpBodyState extends State<SingUpBody> {
                       return null;
                     },
                   ),
-                  const Gap(20),
+                  Gap(20.h),
                   CustomTextFormField(
                     labelText: "Password",
                     obscureText: true,
@@ -77,7 +78,7 @@ class _SingUpBodyState extends State<SingUpBody> {
                       return null;
                     },
                   ),
-                  const Gap(20),
+                  Gap(20.h),
                   Row(
                     children: [
                       Radio<bool>(
@@ -90,17 +91,17 @@ class _SingUpBodyState extends State<SingUpBody> {
                         },
                         activeColor: Colors.blue,
                       ),
-                      const Expanded(
+                      Expanded(
                         child: CustomText(
                           "I agree to the Terms of Service and Privacy Policy",
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: AppColors.greyColor,
                         ),
                       ),
                     ],
                   ),
-                  Gap(30),
+                  Gap(30.h),
                   CustomButton(
                     text: "Sign Up",
                     onTap: () {
@@ -112,11 +113,11 @@ class _SingUpBodyState extends State<SingUpBody> {
                     width: double.infinity,
                     color: AppColors.secondaryColor,
                     textColor: AppColors.wihteColor,
-                    height: 55,
-                    radius: 10,
+                    height: 55.h,
+                    radius: 10.sp,
                   ),
                   CustomButton(
-                    fontSizeText: 14,
+                    fontSizeText: 14.sp,
                     fontWeightText: FontWeight.w400,
                     text: "Have an account? Log in",
                     onTap: () {
