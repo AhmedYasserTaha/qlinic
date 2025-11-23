@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:qlinic/core/shared/splash_background.dart';
 import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/on_bording/onboarding_view.dart';
+import 'package:qlinic/root.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -15,16 +16,16 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => OnboardingView()),
-      );
+      Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (context) => Root()));
     });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context); // Initialize SizeConfig
+    SizeConfig.init(context); // Initialize SizeConfig
     return Scaffold(
       body: Stack(
         children: [
@@ -34,7 +35,11 @@ class _SplashViewState extends State<SplashView> {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: Image.asset("assets/logo.png", width: 150.w, height: 150.h),
+                child: Image.asset(
+                  "assets/logo.png",
+                  width: 150.w,
+                  height: 150.h,
+                ),
               ),
               Text(
                 "Qlinic",

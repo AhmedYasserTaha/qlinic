@@ -7,11 +7,15 @@ class SizeConfig {
   static late double defaultSize;
   static late Orientation orientation;
 
-  void init(BuildContext context) {
+  static void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
     orientation = _mediaQueryData.orientation;
+    // Initialize defaultSize to avoid LateInitializationError
+    defaultSize = orientation == Orientation.landscape
+        ? screenHeight * 0.024
+        : screenWidth * 0.024;
   }
 }
 
@@ -33,5 +37,7 @@ double getProportionateScreenWidth(double inputWidth) {
 extension SizeConfigExtension on num {
   double get h => getProportionateScreenHeight(this.toDouble());
   double get w => getProportionateScreenWidth(this.toDouble());
-  double get sp => getProportionateScreenWidth(this.toDouble()); // Using width for font size scaling is common
+  double get sp => getProportionateScreenWidth(
+    this.toDouble(),
+  ); // Using width for font size scaling is common
 }

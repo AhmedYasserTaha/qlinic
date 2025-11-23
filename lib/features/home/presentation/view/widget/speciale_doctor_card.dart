@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:qlinic/core/models/doctor_model.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/utils/size_config.dart';
+import 'package:qlinic/features/favourite/controller/favorites_controller.dart';
 
 class SpecialeDoctorCard extends StatelessWidget {
-  const SpecialeDoctorCard({super.key});
+  final DoctorModel doctor;
+
+  const SpecialeDoctorCard({super.key, required this.doctor});
 
   @override
   Widget build(BuildContext context) {
     final cardWidth = 130.w;
     final profileSize = cardWidth * 0.6;
+    final favoritesController = FavoritesController();
 
     return SizedBox(
       width: cardWidth,
       child: Card(
         color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.sp)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.sp),
+        ),
         elevation: 4.0,
         child: Padding(
           padding: EdgeInsets.all(8.0.w),
@@ -27,13 +34,28 @@ class SpecialeDoctorCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.favorite, color: Colors.red, size: 16.sp),
+                    ListenableBuilder(
+                      listenable: favoritesController,
+                      builder: (context, child) {
+                        final isFav = favoritesController.isFavorite(doctor);
+                        return GestureDetector(
+                          onTap: () {
+                            favoritesController.toggleFavorite(doctor);
+                          },
+                          child: Icon(
+                            isFav ? Icons.favorite : Icons.favorite_border,
+                            color: isFav ? Colors.red : Colors.grey,
+                            size: 16.sp,
+                          ),
+                        );
+                      },
+                    ),
                     Row(
                       children: [
                         Icon(Icons.star, color: Colors.amber, size: 16.sp),
                         SizedBox(width: 4.w),
                         CustomText(
-                          "4.9",
+                          doctor.rating.toString(),
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
@@ -50,10 +72,10 @@ class SpecialeDoctorCard extends StatelessWidget {
               Container(
                 width: profileSize,
                 height: profileSize,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: AssetImage("assets/images/doc2.jpg"),
+                    image: AssetImage(doctor.image),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -63,7 +85,7 @@ class SpecialeDoctorCard extends StatelessWidget {
 
               // --- Doctor Name ---
               CustomText(
-                "Dr. Strain",
+                doctor.name,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.black,
@@ -72,7 +94,7 @@ class SpecialeDoctorCard extends StatelessWidget {
 
               // --- Rate/Price ---
               CustomText(
-                '\$ 22.00 / hours',
+                '\$ ${doctor.price} / hours',
                 fontSize: 11.sp,
                 fontWeight: FontWeight.w300,
                 color: Colors.grey,
