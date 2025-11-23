@@ -44,7 +44,6 @@ class _OnboardingViewState extends State<OnboardingView> {
     return Scaffold(
       body: Stack(
         children: [
-          SplashBackground(),
           Positioned(
             top: -40.h,
             left: -130.w,

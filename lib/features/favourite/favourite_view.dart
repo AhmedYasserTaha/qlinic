@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
-import 'package:qlinic/core/shared/splash_background.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
 import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/favourite/controller/favorites_controller.dart';
@@ -27,42 +26,37 @@ class FavouriteView extends StatelessWidget {
         ),
       ),
       extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          SplashBackground(),
-          ListenableBuilder(
-            listenable: favoritesController,
-            builder: (context, child) {
-              final favorites = favoritesController.favorites;
+      body: ListenableBuilder(
+        listenable: favoritesController,
+        builder: (context, child) {
+          final favorites = favoritesController.favorites;
 
-              if (favorites.isEmpty) {
-                return Center(
-                  child: CustomText(
-                    "No favorites yet",
-                    fontSize: 16.sp,
-                    color: Colors.grey,
-                  ),
-                );
-              }
+          if (favorites.isEmpty) {
+            return Center(
+              child: CustomText(
+                "No favorites yet",
+                fontSize: 16.sp,
+                color: Colors.grey,
+              ),
+            );
+          }
 
-              return Padding(
-                padding: EdgeInsets.all(20.w),
-                child: GridView.builder(
-                  itemCount: favorites.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 15.h,
-                    crossAxisSpacing: 15.w,
-                    childAspectRatio: 0.7,
-                  ),
-                  itemBuilder: (context, index) {
-                    return SpecialeDoctorCard(doctor: favorites[index]);
-                  },
-                ),
-              );
-            },
-          ),
-        ],
+          return Padding(
+            padding: EdgeInsets.all(20.w),
+            child: GridView.builder(
+              itemCount: favorites.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 15.h,
+                crossAxisSpacing: 15.w,
+                childAspectRatio: 0.7,
+              ),
+              itemBuilder: (context, index) {
+                return SpecialeDoctorCard(doctor: favorites[index]);
+              },
+            ),
+          );
+        },
       ),
     );
   }

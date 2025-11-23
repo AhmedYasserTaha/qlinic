@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qlinic/core/shared/splash_background.dart';
+import 'package:qlinic/core/utils/size_config.dart';
 import 'package:qlinic/features/splash/splash_view.dart';
 
 void main() {
@@ -11,9 +13,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       title: 'Flutter Demo',
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
+      builder: (context, child) {
+        SizeConfig.init(context);
+        return Stack(
+          children: [
+            Container(color: Colors.white),
+            const SplashBackground(),
+            child!,
+          ],
+        );
+      },
       home: SplashView(),
     );
   }
