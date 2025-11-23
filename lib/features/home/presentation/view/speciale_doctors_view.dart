@@ -16,32 +16,34 @@ class SpecialeDoctorsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         title: CustomText(
           "Speciale Doctors",
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
-          color: Colors.white,
+          color: Colors.black,
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20.w),
-        child: GridView.builder(
-          itemCount: specialeDoctors.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 15.h,
-            crossAxisSpacing: 15.w,
-            childAspectRatio: 0.7, // Tuned for SpecialeDoctorCard
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(20.w),
+          child: GridView.builder(
+            itemCount: specialeDoctors.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 15.h,
+              crossAxisSpacing: 15.w,
+              childAspectRatio: 0.7, // Tuned for SpecialeDoctorCard
+            ),
+            itemBuilder: (context, index) {
+              return SpecialeDoctorCard(doctor: specialeDoctors[index]);
+            },
           ),
-          itemBuilder: (context, index) {
-            return SpecialeDoctorCard(doctor: specialeDoctors[index]);
-          },
         ),
       ),
     );

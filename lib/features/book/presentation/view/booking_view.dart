@@ -6,6 +6,7 @@ import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/shared/custom_textformfield.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
 import 'package:qlinic/core/utils/size_config.dart';
+import 'package:qlinic/features/book/presentation/view/booking_datetime_view.dart';
 import 'package:qlinic/features/home/presentation/view/widget/doctor_info_card.dart';
 
 class BookingView extends StatelessWidget {
@@ -61,7 +62,12 @@ class BookingView extends StatelessWidget {
             CustomButton(
               text: "Next",
               onTap: () {
-                // TODO: Implement next step logic
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BookingDateTimeView(doctor: doctor),
+                  ),
+                );
               },
               width: double.infinity,
               color: AppColors.secondaryColor,

@@ -12,33 +12,40 @@ class PopularDoctorsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+
         centerTitle: true,
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         title: CustomText(
           "Popular Doctors",
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
-          color: Colors.white,
+          color: Colors.black,
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: GridView.builder(
-          itemCount: DoctorModel.popularDoctors.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 15.h,
-            crossAxisSpacing: 15.w,
-            childAspectRatio: 0.55, // Tuned for PopularDoctorCard
+      extendBodyBehindAppBar: true,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          child: GridView.builder(
+            itemCount: DoctorModel.popularDoctors.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5.h,
+              crossAxisSpacing: 5.w,
+              childAspectRatio: 0.53, // Tuned for PopularDoctorCard
+            ),
+            itemBuilder: (context, index) {
+              return PopularDoctorCard(
+                doctor: DoctorModel.popularDoctors[index],
+              );
+            },
           ),
-          itemBuilder: (context, index) {
-            return PopularDoctorCard(doctor: DoctorModel.popularDoctors[index]);
-          },
         ),
       ),
     );
