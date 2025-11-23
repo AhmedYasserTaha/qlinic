@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qlinic/core/utils/size_config.dart';
-import 'package:qlinic/features/auth/presentation/view/sign_up_view.dart';
-import 'package:qlinic/features/on_bording/onboarding_view.dart';
 import 'package:qlinic/root.dart';
 
 class SplashView extends StatefulWidget {
@@ -18,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => SignUpView()));
+      ).pushReplacement(MaterialPageRoute(builder: (context) => Root()));
     });
     super.initState();
   }

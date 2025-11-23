@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qlinic/core/models/doctor_model.dart';
 import 'package:qlinic/core/shared/custom_text.dart';
 import 'package:qlinic/core/utils/app_colors.dart';
 import 'package:qlinic/core/utils/size_config.dart';
@@ -28,7 +29,7 @@ class PopularDoctorsView extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: GridView.builder(
-          itemCount: 10, // Mock count
+          itemCount: DoctorModel.popularDoctors.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 15.h,
@@ -36,7 +37,7 @@ class PopularDoctorsView extends StatelessWidget {
             childAspectRatio: 0.55, // Tuned for PopularDoctorCard
           ),
           itemBuilder: (context, index) {
-            return const PopularDoctorCard();
+            return PopularDoctorCard(doctor: DoctorModel.popularDoctors[index]);
           },
         ),
       ),

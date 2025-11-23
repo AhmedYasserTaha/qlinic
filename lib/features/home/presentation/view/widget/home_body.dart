@@ -18,48 +18,8 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Dummy data for Speciale Doctors
-    final List<DoctorModel> specialeDoctors = [
-      DoctorModel(
-        id: 1,
-        name: "Dr. Strain",
-        specialty: "Dental",
-        rating: 4.9,
-        price: 22.00,
-        image: "assets/images/doc2.jpg",
-      ),
-      DoctorModel(
-        id: 2,
-        name: "Dr. Strange",
-        specialty: "Surgeon",
-        rating: 4.8,
-        price: 25.00,
-        image: "assets/images/doc2.jpg",
-      ),
-      DoctorModel(
-        id: 3,
-        name: "Dr. Who",
-        specialty: "General",
-        rating: 4.7,
-        price: 20.00,
-        image: "assets/images/doc2.jpg",
-      ),
-      DoctorModel(
-        id: 4,
-        name: "Dr. House",
-        specialty: "Diagnostic",
-        rating: 4.6,
-        price: 30.00,
-        image: "assets/images/doc2.jpg",
-      ),
-      DoctorModel(
-        id: 5,
-        name: "Dr. Grey",
-        specialty: "Surgeon",
-        rating: 4.5,
-        price: 28.00,
-        image: "assets/images/doc2.jpg",
-      ),
-    ];
+    final specialeDoctors = DoctorModel.specialeDoctors;
+    final popularDoctors = DoctorModel.popularDoctors;
 
     return GestureDetector(
       onTap: () {
@@ -234,8 +194,8 @@ class HomeBody extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
-                  children: List.generate(5, (index) {
-                    return const PopularDoctorCard();
+                  children: List.generate(popularDoctors.length, (index) {
+                    return PopularDoctorCard(doctor: popularDoctors[index]);
                   }),
                 ),
               ),
